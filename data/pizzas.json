@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1",
+    "name": "Бургер пицца",
+    "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/3a948b9d5af14d219e2c54282229755a_292x292.webp",
+    "price": "395",
+    "size": ["26", "30", "40"],
+    "type": ["тонкое"]
+  },
+  {
+    "id": "2",
+    "name": "Сырный Цыпленок",
+    "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/42360a7dcb7640c998b723231586fe84_292x292.webp",
+    "price": "520",
+    "size": ["26"],
+    "type": ["тонкое", "традиционное"]
+  },
+  {
+    "id": "3",
+    "name": "Сырная",
+    "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/d9c609f1422247f2b87b6293eb461ff0_760x760.webp",
+    "price": "310",
+    "size": ["26", "30", "40"],
+    "type": ["тонкое", "традиционное"]
+  },
+  {
+    "id": "4",
+    "name": "Бургер Цыпленок",
+    "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/ddadb2bd7f2d40459acddbe2f51a2389_760x760.webp",
+    "price": "470",
+    "size": ["26", "30", "40"],
+    "type": ["тонкое", "традиционное"]
+  },
+  {
+    "id": "5",
+    "name": "Двойной Сыр",
+    "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/50555f951a6d4fd4ac0088c099eb3769_292x292.webp",
+    "price": "450",
+    "size": ["40"],
+    "type": ["тонкое"]
+  },
+  {
+    "id": "6",
+    "name": "Двойная Пепперони",
+    "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/a96e936c158249e18c831bbcce677065_292x292.webp",
+    "price": "620",
+    "size": ["26", "40"],
+    "type": ["тонкое", "традиционное"]
+  },
+  {
+    "id": "7",
+    "name": "Овощи и грибы",
+    "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/d6c9f93ea37649ac923e9586c034a5a0_292x292.webp",
+    "price": "395",
+    "size": ["26", "30", "40"],
+    "type": ["тонкое"]
+  },
+  {
+    "id": "8",
+    "name": "Цыпленок Барбекю",
+    "img": ".https://dodopizza-a.akamaihd.net/static/Img/Products/45cc8ffb190c4a28aaf1863a67f675c7_292x292.webp",
+    "price": "395",
+    "size": ["26"],
+    "type": ["тонкое", "традиционное"]
+  },
+  {
+    "id": "9",
+    "name": "Жульен Пицца",
+    "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/f8bcc0d18f5a4817a720a159f0f8c37c_292x292.webp",
+    "price": "650",
+    "size": ["26", "40"],
+    "type": ["тонкое", "традиционное"]
+  },
+  {
+    "id": "10",
+    "name": "Маргарита",
+    "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/748949429e25404ea10aab002c910d84_292x292.webp",
+    "price": "290",
+    "size": ["30", "40"],
+    "type": ["тонкое", "традиционное"]
+  },
+  {
+    "id": "11",
+    "name": "Мясная",
+    "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/18dbb12240b041a191c9dc73c9c1f4ef_292x292.webp",
+    "price": "590",
+    "size": ["26", "30", "40"],
+    "type": ["тонкое"]
+  },
+  {
+    "id": "12",
+    "name": "Пицца Половинки",
+    "img": "https://dodopizza-a.akamaihd.net/static/Img/Products/e3f5dfcb094b4c9b8200ca9f573cb2f1_760x760.webp",
+    "price": "500",
+    "size": ["30", "40"],
+    "type": ["тонкое", "традиционное"]
+  }
+]
