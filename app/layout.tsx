@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Raleway } from "next/font/google";
+import StoreProvider from "./StoreProvider";
 import "./globals.css";
 
-const font = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
+const font = Raleway({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "Next Pizza",
@@ -16,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body className={font.className}>{children}</body>
+      <StoreProvider>
+        <body className={font.className}>{children}</body>
+      </StoreProvider>
     </html>
   );
 }

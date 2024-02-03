@@ -19,7 +19,7 @@ export const Button = ({ hrefLabel, text, border = false }: ButtonProps) => {
     <button
       className={`btn ${
         border &&
-        "bg-transparent text-orange border-orange hover:bg-orange hover:text-white transition-all duration-300"
+        "bg-transparent border-solid border-2 text-orange border-orange hover:bg-orange hover:text-white transition-all duration-300"
       }`}
     >
       {text}

@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
@@ -9,6 +7,11 @@ import { Dropdown } from "@/components/Dropdown";
 import { PizzaBlock } from "@/components/PizzaBlock";
 
 const Home = () => {
+  if (typeof window !== "undefined") {
+    console.log("Код выполняется на клиенте");
+  } else {
+    console.log("Код выполняется на сервере");
+  }
   return (
     <section className="rounded-md">
       <div className="inner-container p-[40px]">
@@ -16,7 +19,7 @@ const Home = () => {
           <Categories />
           <Dropdown />
         </header>
-        <div className="">
+        <div>
           <PizzaBlock />
         </div>
       </div>
