@@ -7,11 +7,6 @@ import { Dropdown } from "@/components/Dropdown";
 import { PizzaBlock } from "@/components/PizzaBlock";
 
 const Home = () => {
-  if (typeof window !== "undefined") {
-    console.log("Код выполняется на клиенте");
-  } else {
-    console.log("Код выполняется на сервере");
-  }
   return (
     <section className="rounded-md">
       <div className="inner-container p-[40px]">

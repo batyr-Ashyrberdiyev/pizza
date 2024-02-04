@@ -2,10 +2,11 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import filterSlice from "./slices/filterSlice";
 import pizzaSlice from "./slices/pizzaSlice";
+import cartSlice from "./slices/cartSlice";
 
 export const makeStore = () => {
   return configureStore({
-    reducer: { filterSlice, pizzaSlice },
+    reducer: { filterSlice, pizzaSlice, cartSlice },
   });
 };
 

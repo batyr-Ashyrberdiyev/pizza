@@ -3,11 +3,20 @@ import axios from "axios";
 import { PizzaProps } from "@/components/Pizza";
 import { RootState } from "../store";
 
-export const getPizzas = createAsyncThunk<PizzaProps[]>(
+type fetchType = {
+  getCat: string;
+  getSort: string;
+  // getPrice: string;
+  // getAbc: string;
+};
+
+export const getPizzas = createAsyncThunk<PizzaProps[], fetchType>(
   "pizza/getPizzas",
-  async () => {
+  async (params: fetchType) => {
+    const { getCat, getSort } = params;
+
     const { data } = await axios.get<PizzaProps[]>(
-      `https://65bbb73652189914b5bced76.mockapi.io/pizzas`
+      `https://65bbb73652189914b5bced76.mockapi.io/pizzas?${getCat}${getSort}`
     );
 
     return data;

@@ -14,7 +14,7 @@ export const Categories = ({}) => {
   };
 
   return (
-    <div className="flex gap-x-2 w-full">
+    <div className="flex gap-x-2">
       {categories.map((item) => (
         <div
           onClick={() => {
@@ -22,8 +22,7 @@ export const Categories = ({}) => {
           }}
           key={item.id}
           className={`category ${
-            activeCat === item.id &&
-            "bg-zinc-800 text-white hover:bg-opacity-[100%]"
+            activeCat === item.id && "bg-zinc-800 text-white hover:bg-zinc-700"
           }`}
         >
           {item.title}
