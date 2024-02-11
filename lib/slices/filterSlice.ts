@@ -15,12 +15,13 @@ interface FitlerTypes {
   activeCat: number;
   categories: categType[];
   sort: sortType;
+  search: string;
 }
 
 const initialState: FitlerTypes = {
   activeCat: 1,
   sort: { rating: "popularity", name: "популярность" },
-
+  search: "",
   categories: [
     { title: "Все", id: 1 },
     { title: "Мясные", id: 2 },
@@ -41,11 +42,14 @@ const filterSlice = createSlice({
     setSort(state, action: PayloadAction<sortType>) {
       state.sort = action.payload;
     },
+    setSearch(state, action: PayloadAction<string>) {
+      state.search = action.payload;
+    },
   },
 });
 
 export const selectFilter = (state: RootState) => state.filterSlice;
 
-export const { setActiveCat, setSort } = filterSlice.actions;
+export const { setActiveCat, setSort, setSearch } = filterSlice.actions;
 
 export default filterSlice.reducer;

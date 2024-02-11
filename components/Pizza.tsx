@@ -2,17 +2,23 @@
 
 import React from "react";
 import Image from "next/image";
-import { Button } from "./Button";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { selectCart, addItem } from "@/lib/slices/cartSlice";
+import Link from "next/link";
 
 export interface PizzaProps {
+  id: string;
   name: string;
   img: string;
-  price: string;
+  price: number;
   type: string[];
   size: string[];
+  count?: number;
 }
 
-export const Pizza = ({ name, img, price, type, size }: PizzaProps) => {
+export const Pizza = ({ id, name, img, price, type, size }: PizzaProps) => {
+  const dispatch = useAppDispatch();
+  const { cartItems } = useAppSelector(selectCart);
   const [active, setActive] = React.useState<number>(0);
   const [typeId, setTypeId] = React.useState<number>(0);
 
@@ -30,9 +36,16 @@ export const Pizza = ({ name, img, price, type, size }: PizzaProps) => {
 
   return (
     <div className="flex flex-col gap-x-[20px] items-center justify-center text-center">
-      {/*  */}
       <header className="mb-[20px] text-grey">
-        <Image src={img} alt="pizza" width={250} height={250} />
+        <Link href="/pizza">
+          <Image
+            src={img}
+            alt="pizza"
+            width={250}
+            height={250}
+            className="cursor-pointer"
+          />
+        </Link>
         <h2 className="text-h2 font-bold">{name}</h2>
       </header>
 
@@ -66,9 +79,13 @@ export const Pizza = ({ name, img, price, type, size }: PizzaProps) => {
 
       <footer className="flex justify-between items-center font-bold gap-x-2">
         <h2 className="text-[22px]">от {price}руб.</h2>
-        <Button border text={"Добавить"} />
+        <button
+          onClick={() => addItem(id)}
+          className="btn bg-transparent font-bold text-black hover:bg-orange border-orange border-[1px]"
+        >
+          Добавить
+        </button>
       </footer>
-      {/*  */}
     </div>
   );
 };

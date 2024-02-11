@@ -6,8 +6,6 @@ import { RootState } from "../store";
 type fetchType = {
   getCat: string;
   getSort: string;
-  // getPrice: string;
-  // getAbc: string;
 };
 
 export const getPizzas = createAsyncThunk<PizzaProps[], fetchType>(
@@ -44,6 +42,7 @@ const pizzaSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getPizzas.pending, (state) => {
       state.status = "pending";
+      state.items = [];
     });
 
     builder.addCase(getPizzas.fulfilled, (state, action) => {
@@ -53,6 +52,7 @@ const pizzaSlice = createSlice({
 
     builder.addCase(getPizzas.rejected, (state) => {
       state.status = "error";
+      state.items = [];
     });
   },
 });

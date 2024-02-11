@@ -1,11 +1,10 @@
 "use client";
 
 import React from "react";
-import { useAppDispatch, useAppSelector, useAppStore } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { selectFilter, setActiveCat } from "@/lib/slices/filterSlice";
 
 export const Categories = ({}) => {
-  const store = useAppStore();
   const dispatch = useAppDispatch();
   const { activeCat, categories } = useAppSelector(selectFilter);
 

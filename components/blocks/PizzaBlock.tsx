@@ -1,17 +1,18 @@
 "use client";
 
 import React from "react";
-import axios from "axios";
 
-import { Pizza } from "./Pizza";
+import { Pizza } from "../Pizza";
+import PizzaSkeleton from "../skeletons/PizzaSkeleton";
+
 import { getPizzas, selectPizza } from "@/lib/slices/pizzaSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { selectFilter } from "@/lib/slices/filterSlice";
 
 export const PizzaBlock = () => {
   const dispatch = useAppDispatch();
-  const { items } = useAppSelector(selectPizza);
-  const { sort, activeCat } = useAppSelector(selectFilter);
+  const { items, status } = useAppSelector(selectPizza);
+  const { sort, activeCat, search } = useAppSelector(selectFilter);
 
   React.useEffect(() => {
     const getCat = activeCat > 1 ? "cat=" + activeCat : "";
@@ -24,13 +25,17 @@ export const PizzaBlock = () => {
     dispatch(getPizzas({ getCat, getSort }));
   }, [activeCat, sort.rating]);
 
+  const filtering = items.filter((pizza) =>
+    pizza.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div>
       <h1 className="text-h1">Все пиццы</h1>
       <div className="pizza-block">
-        {items.map((item) => (
-          <Pizza {...item} />
-        ))}
+        {status === "pending"
+          ? [...Array(4)].map((_, id) => <PizzaSkeleton key={id} />)
+          : filtering.map((item) => <Pizza {...item} key={item.id} />)}
       </div>
     </div>
   );

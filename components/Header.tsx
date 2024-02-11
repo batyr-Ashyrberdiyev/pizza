@@ -5,9 +5,13 @@ import Image from "next/image";
 import { Button } from "./Button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import debounce from "lodash.debounce";
 
 import logo from "@/public/assets/icons/logo.svg";
-import { useRouter } from "next/navigation";
+
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { setSearch } from "@/lib/slices/filterSlice";
+import { selectCart } from "@/lib/slices/cartSlice";
 
 interface HeaderProps {
   btn: boolean;
@@ -15,6 +19,30 @@ interface HeaderProps {
 
 export const Header = ({ btn = false }: HeaderProps) => {
   const pathname = usePathname();
+  const dispatch = useAppDispatch();
+  const { cartItems, sum } = useAppSelector(selectCart);
+  const [value, setValue] = React.useState("");
+
+  const changeInput = React.useCallback(
+    debounce((str: string) => {
+      dispatch(setSearch(str));
+    }, 400),
+    []
+  );
+
+  const updateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+    changeInput(e.target.value);
+  };
+
+  const isMounted = React.useRef(false);
+  React.useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(cartItems);
+      localStorage.setItem("cart", json);
+    }
+    isMounted.current = true;
+  }, [cartItems]);
 
   return (
     <header className="text-black font-bold border-b">
@@ -41,7 +69,22 @@ export const Header = ({ btn = false }: HeaderProps) => {
             </div>
           </Link>
 
-          <Button hrefLabel="/cart" text="1000 руб." />
+          {pathname === "/" && (
+            <input
+              type="text"
+              value={value}
+              onChange={updateValue}
+              placeholder="Поиск..."
+              className="px-8 border-lightGrey border-[1px] rounded-xl py-2 focus:outline-none"
+            />
+          )}
+
+          <Button
+            hrefLabel="/cart"
+            text="1000 руб."
+            length={cartItems.length}
+            price={sum}
+          />
         </div>
       </div>
     </header>
